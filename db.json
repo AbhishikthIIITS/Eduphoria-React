@@ -1,0 +1,245 @@
+{
+  "user": [
+    {
+      "firstName": "Preetham",
+      "lastName": "Jayam",
+      "phoneNo": "9573569787",
+      "dob": "2004-02-28",
+      "address": "Bellary road, Kalyanadurgam",
+      "email": "preetham@gmail.com",
+      "password": "Jayam@123",
+      "role": 0,
+      "id": 1,
+      "enrolledCourses": [
+        3,
+        4
+      ]
+    },
+    {
+      "firstName": "Chaitanya",
+      "lastName": "Kampara",
+      "phoneNo": "7569664671",
+      "dob": "2003-08-20",
+      "address": "Rajahmundry",
+      "email": "chaitu@gmail.com",
+      "password": "chaitu@123",
+      "role": 0,
+      "id": 2,
+      "enrolledCourses": [
+        1,
+        2
+      ]
+    },
+    {
+      "fullName": "Krishna Rao",
+      "phoneNo": "7569664672",
+      "instituteName": "IIT Kharagpur",
+      "gender": "male",
+      "email": "krishna@gmail.com",
+      "password": "krish@123",
+      "role": 1,
+      "id": 3,
+      "teachingCourses": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "fullName": "Niranjan",
+      "phoneNo": "8008201571",
+      "instituteName": "Bhashyam",
+      "gender": "male",
+      "email": "niranjan@gmail.com",
+      "password": "niru@123",
+      "role": 1,
+      "id": 4,
+      "teachingCourses":[5]
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "instructorName": "Krishna Rao",
+      "title": "Introduction to Programming",
+      "price": 2999,
+      "image": "/Course1.jpeg",
+      "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
+      "chapters": [
+        {
+          "chapterName": "Chapter 1: Introduction",
+          "lessons": [
+            {
+              "id": 1,
+              "lessonName": "Lesson 1: Course Introduction",
+              "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+            },
+            {
+              "id": 2,
+              "lessonName": "Lesson 2: Getting Started",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 2: Main Topics",
+          "lessons": [
+            {
+              "id": 3,
+              "lessonName": "Lesson 3: Topic 1",
+              "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+            },
+            {
+              "id": 4,
+              "lessonName": "Lesson 4: Topic 2",
+              "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+            }
+          ]
+        }
+      ],
+      "enrolledStudents": [
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "instructorName": "Krishna Rao",
+      "title": "PHP",
+      "price": 1999,
+      "image": "/Course2.jpeg",
+      "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
+      "chapters": [
+        {
+          "chapterName": "Chapter 1: Introduction",
+          "lessons": [
+            {
+              "id": 1,
+              "lessonName": "Lesson 1: Course Introduction",
+              "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+            },
+            {
+              "id": 2,
+              "lessonName": "Lesson 2: Getting Started",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 2: Main Topics",
+          "lessons": [
+            {
+              "id": 3,
+              "lessonName": "Lesson 3: Topic 1",
+              "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+            },
+            {
+              "id": 4,
+              "lessonName": "Lesson 4: Topic 2",
+              "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+            }
+          ]
+        }
+      ],
+      "enrolledStudents": [
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "instructorName": "Krishna Rao",
+      "title": "Python Programming",
+      "price": 9999,
+      "image": "/Course3.jpeg",
+      "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
+      "chapters": [
+        {
+          "chapterName": "Chapter 1: Introduction",
+          "lessons": [
+            {
+              "id": 1,
+              "lessonName": "Lesson 1: Course Introduction",
+              "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+            },
+            {
+              "id": 2,
+              "lessonName": "Lesson 2: Getting Started",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 2: Main Topics",
+          "lessons": [
+            {
+              "id": 3,
+              "lessonName": "Lesson 3: Topic 1",
+              "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+            },
+            {
+              "id": 4,
+              "lessonName": "Lesson 4: Topic 2",
+              "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+            }
+          ]
+        }
+      ],
+      "enrolledStudents": [
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "instructorName": "Krishna Rao",
+      "title": "Introduction to Web",
+      "price": 3999,
+      "image": "/Course1.jpeg",
+      "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
+      "chapters": [
+        {
+          "chapterName": "Chapter 1: Introduction",
+          "lessons": [
+            {
+              "id": 1,
+              "lessonName": "Lesson 1: Course Introduction",
+              "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+            },
+            {
+              "id": 2,
+              "lessonName": "Lesson 2: Getting Started",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 2: Main Topics",
+          "lessons": [
+            {
+              "id": 3,
+              "lessonName": "Lesson 3: Topic 1",
+              "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+            },
+            {
+              "id": 4,
+              "lessonName": "Lesson 4: Topic 2",
+              "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+            }
+          ]
+        }
+      ],
+      "enrolledStudents": [
+        1
+      ]
+    },
+    {
+      "title": "Data Structures and algorithms",
+      "description": "A data structure is a way of organizing the data so that it can be used efficiently. Here, we have used the word efficiently, which in terms of both the space and time. For example, a stack is an ADT (Abstract data type) which uses either arrays or linked list data structure for the implementation.",
+      "price": "4500",
+      "instructorName": "Niranjan",
+      "image": "/Course4.jpg",
+      "chapters": [],
+      "enrolledStudents": [],
+      "id": 5
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+.course-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+    padding: 20px;
+    margin-top: auto;
+    
+  }
+
+  .enrolled-heading {
+    font-family: cursive; 
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    color: #333; 
+  }
+  
+
+  @media (max-width: 768px) {
+    .course-list {
+      flex-direction: column;
+    }
+  }
+  
