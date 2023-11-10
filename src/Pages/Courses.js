@@ -14,7 +14,7 @@ const Courses = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [sortValue,setSortValue]=useState("");
 
-  const otherCourses= user && courseData.filter((course)=>!user.enrolledCourses.includes(course.id));
+  const otherCourses= user && user.role===0 && courseData.filter((course)=>!user.enrolledCourses.includes(course.id));
 
   useEffect(() => {
     const getCourseData = () => {
@@ -91,7 +91,7 @@ const Courses = () => {
             </button>
           </div>
         </div>
-        {isLoading ? <Loader /> : (isLoggedIn ? <CourseList courses={otherCourses} /> :<CourseList courses={courseData} />)}
+        {isLoading ? <Loader /> : (isLoggedIn ? <CourseList courses={user.role===0 ?otherCourses : courseData} /> :<CourseList courses={courseData} />)}
       </div>
     </motion.div>
   );

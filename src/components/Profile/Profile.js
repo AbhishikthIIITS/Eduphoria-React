@@ -17,8 +17,8 @@ const Profile = () => {
         return response.json();
       })
       .then((userData) => {
-        if (userData && userData.enrolledCourses) {
-          const courseIds = userData.enrolledCourses;
+        if (userData) {
+          const courseIds = userData.role===0 ? userData.enrolledCourses : userData.teachingCourses;
 
           const courseForUser = courseIds.map((courseId) =>
             fetch(`http://localhost:8000/courses/${courseId}`).then(
@@ -34,6 +34,7 @@ const Profile = () => {
           Promise.all(courseForUser)
             .then((courseDetails) => {
               setUserCourses(courseDetails);
+              
               setLoading(false);
             })
             .catch((error) => {
@@ -58,32 +59,32 @@ const Profile = () => {
       {user.role === 0 && (
         <>
           <div className="user-profile">
-            <div class="user-details">
-              <h1 class="user-name">User Profile</h1>
-              <div class="user-info">
-                <div class="info-item">
-                  <span class="info-label">First Name:</span>
-                  <span class="info-value">{user.firstName}</span>
+            <div className="user-details">
+              <h1 className="user-name">User Profile</h1>
+              <div className="user-info">
+                <div className="info-item">
+                  <span className="info-label">First Name:</span>
+                  <span className="info-value">{user.firstName}</span>
                 </div>
-                <div class="info-item">
-                  <span class="info-label">Last Name:</span>
-                  <span class="info-value">{user.lastName}</span>
+                <div className="info-item">
+                  <span className="info-label">Last Name:</span>
+                  <span className="info-value">{user.lastName}</span>
                 </div>
-                <div class="info-item">
-                  <span class="info-label">Email:</span>
-                  <span class="info-value">{user.email}</span>
+                <div className="info-item">
+                  <span className="info-label">Email:</span>
+                  <span className="info-value">{user.email}</span>
                 </div>
-                <div class="info-item">
-                  <span class="info-label">Phone Number:</span>
-                  <span class="info-value">{user.phoneNo}</span>
+                <div className="info-item">
+                  <span className="info-label">Phone Number:</span>
+                  <span className="info-value">{user.phoneNo}</span>
                 </div>
-                <div class="info-item">
-                  <span class="info-label">Date of Birth:</span>
-                  <span class="info-value">{user.dob}</span>
+                <div className="info-item">
+                  <span className="info-label">Date of Birth:</span>
+                  <span className="info-value">{user.dob}</span>
                 </div>
-                <div class="info-item">
-                  <span class="info-label">Address:</span>
-                  <span class="info-value">{user.address}</span>
+                <div className="info-item">
+                  <span className="info-label">Address:</span>
+                  <span className="info-value">{user.address}</span>
                 </div>
               </div>
             </div>
@@ -98,7 +99,42 @@ const Profile = () => {
         </>
       )}
 
-      {user.role===1 && (<><h1>Teacher Home Page</h1></>)}
+      {user.role===1 && ( <>
+          <div className="user-profile">
+            <div className="user-details">
+              <h1 className="user-name">Teacher Profile</h1>
+              <div className="user-info">
+                <div className="info-item">
+                  <span className="info-label">Full Name:</span>
+                  <span className="info-value">{user.fullName}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">Institute Name:</span>
+                  <span className="info-value">{user.instituteName}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">Email:</span>
+                  <span className="info-value">{user.email}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">Phone Number:</span>
+                  <span className="info-value">{user.phoneNo}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">Gender:</span>
+                  <span className="info-value">{user.gender}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="user-courses">
+            {loading ? (
+              <Loader />
+            ) : (
+              <EnrolledCourseList courses={userCourses} />
+            )}
+          </div>
+        </>)}
     </>
   );
 };
