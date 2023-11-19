@@ -135,6 +135,36 @@ const Profile = () => {
             )}
           </div>
         </>)}
+
+        {user.role===2 && ( <>
+          <div className="user-profile">
+            <div className="user-details">
+              <h1 className="user-name">Admin Profile</h1>
+              <div className="user-info">
+                <div className="info-item">
+                  <span className="info-label">Full Name:</span>
+                  <span className="info-value">{user.fullName}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">Institute Name:</span>
+                  <span className="info-value">{user.instituteName}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">Email:</span>
+                  <span className="info-value">{user.email}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">Phone Number:</span>
+                  <span className="info-value">{user.phoneNo}</span>
+                </div>
+                <div className="info-item">
+                  <span className="info-label">Gender:</span>
+                  <span className="info-value">{user.gender}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>)}
     </>
   );
 };

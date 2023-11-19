@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import "./Accordion.css";
-
-const Accordion = ({ courseData, setSelectedVideoUrl, enrolled ,completedLessons}) => {
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+const Accordion = ({
+  course,
+  courseData,
+  setSelectedVideoUrl,
+  enrolled,
+  completedLessons,
+}) => {
+  const user = useSelector((state) => state.auth.user);
+  const loggedIn=useSelector((state)=>state.auth.loggedIn);
   const [activeChapter, setActiveChapter] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
+  const id=course.id;
 
   const toggleChapter = (chapterIndex) => {
     if (activeChapter === chapterIndex) {
@@ -40,29 +50,32 @@ const Accordion = ({ courseData, setSelectedVideoUrl, enrolled ,completedLessons
           </div>
           {enrolled && (
             <div
-            className={`accordion-chapters ${
-              chapterIndex === activeChapter ? "open" : ""
-            }`}
-          >
-            {chapter.lessons.map((lesson) => (
-              <div
-                key={lesson.id}
-                className={`lesson-item ${
-                  lesson.id === activeLesson ? "active" : ""
-                }`}
-                onClick={() => {
-                  toggleLesson(lesson.id);
-                  handleLessonClick(lesson.videoUrl);
-                }}
-              >
-                <label>
-                  <input type="checkbox" checked={completedLessons.includes(lesson.id)} onChange={() => {}}/> 
-                  {lesson.lessonName}
-                </label>
-              </div>
-            ))}
-          </div>
-          
+              className={`accordion-chapters ${
+                chapterIndex === activeChapter ? "open" : ""
+              }`}
+            >
+              {chapter.lessons.map((lesson) => (
+                <div
+                  key={lesson.id}
+                  className={`lesson-item ${
+                    lesson.id === activeLesson ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    toggleLesson(lesson.id);
+                    handleLessonClick(lesson.videoUrl);
+                  }}
+                >
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={completedLessons.includes(lesson.id)}
+                      onChange={() => {}}
+                    />
+                    {lesson.lessonName}
+                  </label>
+                </div>
+              ))}
+            </div>
           )}
           {!enrolled && (
             <div
@@ -87,6 +100,20 @@ const Accordion = ({ courseData, setSelectedVideoUrl, enrolled ,completedLessons
           )}
         </div>
       ))}
+      {loggedIn && user.role === 1 && user.teachingCourses.includes(id) && (
+        <>
+          <div className="edit-div">
+            <Link to={`/course/edit/${id}`}>
+              <button className="edit">Edit</button>
+            </Link>
+          </div>
+          <div className="upload-div">
+          <Link to={`/course/upload/${id}`}>
+              <button className="upload">Upload</button>
+            </Link>
+          </div>
+        </>
+      )}
     </div>
   );
 };

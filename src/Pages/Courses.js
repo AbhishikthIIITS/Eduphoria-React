@@ -15,6 +15,7 @@ const Courses = () => {
   const [sortValue,setSortValue]=useState("");
 
   const otherCourses= user && user.role===0 && courseData.filter((course)=>!user.enrolledCourses.includes(course.id));
+  
 
   useEffect(() => {
     const getCourseData = () => {

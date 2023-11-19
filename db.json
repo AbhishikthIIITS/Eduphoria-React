@@ -9,24 +9,28 @@
       "email": "preetham@gmail.com",
       "password": "Jayam@123",
       "role": 0,
+      "flag": 0,
       "id": 1,
       "enrolledCourses": [
         3,
-        4
+        4,
+        2
       ]
     },
     {
       "firstName": "Chaitanya",
       "lastName": "Kampara",
       "phoneNo": "7569664671",
-      "dob": "2003-08-20",
-      "address": "Rajahmundry",
+      "dob": "2004-07-20",
+      "address": "Rajhamundry",
       "email": "chaitu@gmail.com",
-      "password": "chaitu@123",
+      "password": "Chaitu@123",
       "role": 0,
+      "flag": 0,
       "id": 2,
       "enrolledCourses": [
         1,
+        3,
         2
       ]
     },
@@ -38,6 +42,7 @@
       "email": "krishna@gmail.com",
       "password": "krish@123",
       "role": 1,
+      "flag": 0,
       "id": 3,
       "teachingCourses": [
         1,
@@ -54,8 +59,23 @@
       "email": "niranjan@gmail.com",
       "password": "niru@123",
       "role": 1,
+      "flag": 0,
       "id": 4,
-      "teachingCourses":[5]
+      "teachingCourses": [
+        5
+      ]
+    },
+    {
+      "fullName": "Admin",
+      "phoneNo": "9573569787",
+      "instituteName": "IIT Chennai",
+      "gender": "male",
+      "email": "admin@gmail.com",
+      "password": "admin@123",
+      "role": 2,
+      "flag": 0,
+      "teachingCourses": [],
+      "id": 5
     }
   ],
   "courses": [
@@ -142,7 +162,8 @@
         }
       ],
       "enrolledStudents": [
-        2
+        2,
+        1
       ]
     },
     {
@@ -237,9 +258,98 @@
       "price": "4500",
       "instructorName": "Niranjan",
       "image": "/Course4.jpg",
-      "chapters": [],
+      "chapters": [
+        {
+          "chapterName": "Chapter 1: Introduction",
+          "lessons": [
+            {
+              "id": 1,
+              "lessonName": "Lesson 1: Course Introduction",
+              "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+            },
+            {
+              "id": 2,
+              "lessonName": "Lesson 2: Getting Started",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            },
+            {
+              "id": 1700390745507,
+              "lessonName": "Lesson 3 ",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            },
+            {
+              "id": 1700396403983,
+              "lessonName": "Lesson 4",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 2: Main Topics",
+          "lessons": [
+            {
+              "id": 3,
+              "lessonName": "Lesson 3: Topic 1",
+              "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+            },
+            {
+              "id": 4,
+              "lessonName": "Lesson 4: Topic 2",
+              "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+            },
+            {
+              "id": 1700396406844,
+              "lessonName": "Lesson 5",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 3",
+          "lessons": [
+            {
+              "id": 1700396435919,
+              "lessonName": "Introduction to chapter 3",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            },
+            {
+              "id": 1700396446066,
+              "lessonName": "Lesson 2",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            }
+          ]
+        },
+        {
+          "chapterName": "Chapter 4",
+          "lessons": [
+            {
+              "id": 1700396466667,
+              "lessonName": "Lesson 1:chapter 4",
+              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+            }
+          ]
+        }
+      ],
       "enrolledStudents": [],
       "id": 5
+    }
+  ],
+  "reviews": [
+    {
+      "courseId": "2",
+      "studentName": "Preetham",
+      "rating": 4,
+      "comment": "Great Course I Learned a lot !!",
+      "todaysdate": "November 18, 2023",
+      "id": 1
+    },
+    {
+      "courseId": "4",
+      "studentName": "Preetham",
+      "rating": 5,
+      "comment": "Nice Course",
+      "todaysdate": "November 18, 2023",
+      "id": 2
     }
   ]
 }

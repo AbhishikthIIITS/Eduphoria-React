@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../Slices/AuthSlice"; 
 const NavItems = () => {
   const loggedIn = useSelector((state) => state.auth.loggedIn);
-  
-  const dispatch = useDispatch();
-  
+  const user=useSelector((state)=>state.auth.user);
 
+  const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
   };
@@ -40,7 +39,7 @@ const NavItems = () => {
         </>
       )}
 
-      {loggedIn && (
+      {loggedIn && user.role!==2 && (
         <>
           <li>
            <button className="pro-btn"><NavLink to="/profile">Profile</NavLink></button> 
@@ -50,6 +49,20 @@ const NavItems = () => {
           </li>
         </>
       )}
+
+      {loggedIn && user.role===2 && (
+      <>
+         <li>
+            <NavLink to="/users">All Users</NavLink>
+          </li>
+          <li>
+           <button className="pro-btn"><NavLink to="/profile">Profile</NavLink></button> 
+          </li>
+          <li>
+            <button onClick={handleLogout} className="logout-btn" >Logout</button>
+          </li>
+         
+      </>)}
     </ul>
   );
 };

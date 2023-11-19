@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import Tab from "../Tabs/Tab";
 import { FaCode, FaUniversity } from "react-icons/fa";
 import "./CourseDetails.css";
@@ -16,6 +16,7 @@ import {
   FaTrophy,
 } from "react-icons/fa";
 const CourseDetails = () => {
+  const navigate=useNavigate();
   const { id: courseId } = useParams();
   const [course, setCourse] = useState([]);
   const [courseChapters,setCourseChapters]=useState([]);
@@ -60,7 +61,9 @@ const CourseDetails = () => {
       content: (
         <>
         <Accordion
+          course={course}
           courseData={courseChapters}
+          enrolled={false}
         />
           
         </>
@@ -138,6 +141,12 @@ const CourseDetails = () => {
       </>,
     },
   ];
+
+  const handlePayment=()=>{
+
+    navigate(`/enroll/${courseId}`);
+    
+  }
 
   return (
     <div className="course-main-box">
@@ -224,7 +233,7 @@ const CourseDetails = () => {
             </li>
           </ul>
 
-          <button className="join-button">
+          <button className="join-button" onClick={handlePayment}>
             Enroll Now
           </button>
         </div>

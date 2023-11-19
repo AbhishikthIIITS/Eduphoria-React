@@ -14,6 +14,9 @@ import { AnimatePresence } from "../../node_modules/framer-motion/dist/framer-mo
 import { Route, Routes, useLocation } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import ProfilePage from "../Pages/ProfilePage";
+import EnrollPayment from "./Payment/EnrollPayment";
+import CourseUploadPage from "../Pages/CourseUploadPage";
+import AllUsersPage from "../Pages/AllUsersPage";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -34,6 +37,9 @@ const AnimatedRoutes = () => {
         <Route  path='/courseContent/:id' element={<ProtectedRoute><CourseContentPage/></ProtectedRoute>}/>
         <Route path='/AddCourse' element={<ProtectedRoute><AddCourse/></ProtectedRoute>} />
         <Route path='/profile' element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+        <Route path='/enroll/:cid' element={<ProtectedRoute><EnrollPayment/></ProtectedRoute>} />
+        <Route path='/course/upload/:id' element={<ProtectedRoute><CourseUploadPage/></ProtectedRoute>} />
+        <Route path='/users' element={<ProtectedRoute><AllUsersPage/></ProtectedRoute>} />
 
         
       </Routes>

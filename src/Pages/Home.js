@@ -26,9 +26,9 @@ const Home = () => {
           return response.json();
         })
         .then((userData) => {
-          if (userData && userData.enrolledCourses) {
-            const courseIds = userData.enrolledCourses;
-  
+          console.log(userData);
+          if (userData ) {
+            const courseIds = userData.role===0? userData.enrolledCourses:userData.teachingCourses;
             const courseForUser = courseIds.map((courseId) =>
               fetch(`http://localhost:8000/courses/${courseId}`).then(
                 (response) => {
@@ -43,6 +43,7 @@ const Home = () => {
             Promise.all(courseForUser)
               .then((courseDetails) => {
                 setUserCourses(courseDetails);
+                
               })
               .catch((error) => {
                 console.error("Error fetching course details:", error);
@@ -91,7 +92,7 @@ const Home = () => {
       )}
 
       {loggedIn && <Header user={user} />}
-      {loggedIn && user.role === 0 && (
+      {loggedIn  && (
         <EnrolledCourseList courses={userCourses} />
       )}
 

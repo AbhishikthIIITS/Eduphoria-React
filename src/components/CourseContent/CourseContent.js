@@ -5,8 +5,14 @@ import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { FaCode, FaUniversity } from "react-icons/fa";
 import Tab from "../Tabs/Tab";
+import { useSelector } from "react-redux";
+
 const CourseContent = () => {
+  const user=useSelector((state)=>state.auth.user);
   const [course, setCourse] = useState([]);
+  const [rating, setRating] = useState("1");
+  const [comment, setComment] = useState("");
+  const [reviews, setReviews] = useState([]);
   const [completedLessons, setCompletedLessons] = useState([]);
   const [selectedVideoUrl, setSelectedVideoUrl] = useState(
     "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
@@ -32,20 +38,60 @@ const CourseContent = () => {
     };
     getCourse();
   }, [courseId]);
-  const reviews = [
-    {
-      author: "Preetham Jayam",
-      date: "August 15, 2023",
-      rating: 5,
-      comment: "Great course! I learned a lot.",
-    },
-    {
-      author: "Anil Kumar",
-      date: "August 10, 2023",
-      rating: 4,
-      comment: "Informative content, but could use more quizzes.",
-    },
-  ];
+
+  
+
+  const submitReviewHandler = (e) => {
+    e.preventDefault();
+    setRating('1');
+    setComment("");
+
+    const reviewData = {
+      courseId: courseId, 
+      studentName: user.firstName, 
+      rating: parseInt(rating, 10),
+      comment,
+      todaysdate: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
+    };
+
+    fetch("http://localhost:8000/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviewData),
+    })
+      .then((res) => res.json())
+      .then((newReview) => {
+        setReviews([...reviews, newReview]); 
+        alert("Review added succesfully");
+        
+      })
+      .catch((err) => {
+        console.error("Error submitting review:", err.message);
+      });
+    
+      
+  };
+
+  useEffect(() => {
+    if (courseId) {
+      fetch(`http://localhost:8000/reviews?courseId=${courseId}`)
+        .then((res) => res.json())
+        .then((fetchedReviews) => {
+          if (Array.isArray(fetchedReviews)) {
+            setReviews(fetchedReviews);
+          } else {
+            console.error("Invalid response from the server when fetching reviews");
+          }
+        })
+        .catch((err) => {
+          console.error("Error fetching reviews:", err.message);
+        });
+    }
+  }, [courseId]);
+  
+
   const tabs = [
     {
       label: "Overview",
@@ -72,7 +118,7 @@ const CourseContent = () => {
               <p className="rating-count">5 Ratings</p>
             </div>
             <div className="student-section">
-              <span className="student-count">1000</span>
+              <span className="student-count">10</span>
               <br />
               Students
             </div>
@@ -100,7 +146,7 @@ const CourseContent = () => {
         <>
           <div className="instructor-container">
             <div className="instructor-info">
-              <h5>Dr.Krishna Rao</h5>
+              <h5>{course.instructorName}</h5>
               <p>Web Developer</p>
             </div>
             <div className="instructor-updated">
@@ -137,47 +183,48 @@ const CourseContent = () => {
     {
       label: "Reviews",
       content: (
-        <>
-          <div className="review-form-container">
-            <h2>Submit a Review</h2>
-            <form>
-              <div className="review-input">
-                <label for="rating">Rating:</label>
-                <select id="rating" name="rating" required>
-                  <option value="1">1 Star</option>
-                  <option value="2">2 Stars</option>
-                  <option value="3">3 Stars</option>
-                  <option value="4">4 Stars</option>
-                  <option value="5">5 Stars</option>
-                </select>
-              </div>
-              <div className="review-input">
-                <label for="comment">Comment:</label>
-                <textarea id="comment" name="comment" required></textarea>
-              </div>
-              <div className="review-input">
-                <button type="submit">Submit Review</button>
-              </div>
-            </form>
-          </div>
-          <div className="reviews-container">
-            <h2>Reviews</h2>
-            <ul className="reviews-list">
-              {reviews.map((review, index) => (
-                <li key={index} className="review-item">
-                  <div className="review-header">
-                    <p className="review-author">{review.author}</p>
-                    <p className="review-date">{review.date}</p>
-                  </div>
-                  <div className="review-rating">
-                    <span className="star">&#9733;</span> {review.rating}
-                  </div>
-                  <p className="review-comment">{review.comment}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
+        <div>
+        <div className="review-form-container">
+          <h2>Submit a Review</h2>
+          <form onSubmit={submitReviewHandler}>
+            <div className="review-input">
+              <label htmlFor="rating">Rating:</label>
+              <select id="rating" name="rating" required onChange={(e) => setRating(e.target.value)}>
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+              </select>
+            </div>
+            <div className="review-input">
+              <label htmlFor="comment">Comment:</label>
+              <textarea id="comment" name="comment" required onChange={(e) => setComment(e.target.value)}></textarea>
+            </div>
+            <div className="review-input">
+              <button type="submit">Submit Review</button>
+            </div>
+          </form>
+        </div>
+        <div className="reviews-container">
+          <h2>Reviews</h2>
+          <ul className="reviews-list">
+            {reviews.length===0 && <h3>No Reviews Yet!!</h3>}
+            {reviews.length>0 && reviews.map((review, index) => (
+              <li key={index} className="review-item">
+                <div className="review-header">
+                  <p className="review-author">{review.studentName}</p>
+                  <p className="review-date">{review.todaysdate}</p>
+                </div>
+                <div className="review-rating">
+                  <span className="star">&#9733;</span> {review.rating}
+                </div>
+                <p className="review-comment">{review.comment}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
       ),
     },
   ];
@@ -203,9 +250,10 @@ const CourseContent = () => {
 
       <div className="sidebar">
         <Accordion
+          course={course}
           courseData={courseChapters}
           setSelectedVideoUrl={setSelectedVideoUrl}
-          enrolled="true"
+          enrolled={true}
           completedLessons={completedLessons}
         />
       </div>
