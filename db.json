@@ -15,6 +15,138 @@
         3,
         4,
         2
+      ],
+      "courses": [
+        {
+          "id": 3,
+          "instructorName": "Krishna Rao",
+          "title": "Python Programming",
+          "price": 9999,
+          "image": "/Course3.jpeg",
+          "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
+          "chapters": [
+            {
+              "chapterName": "Chapter 1: Introduction",
+              "lessons": [
+                {
+                  "id": 1,
+                  "lessonName": "Lesson 1: Course Introduction",
+                  "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+                },
+                {
+                  "id": 2,
+                  "lessonName": "Lesson 2: Getting Started",
+                  "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+                }
+              ]
+            },
+            {
+              "chapterName": "Chapter 2: Main Topics",
+              "lessons": [
+                {
+                  "id": 3,
+                  "lessonName": "Lesson 3: Topic 1",
+                  "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+                },
+                {
+                  "id": 4,
+                  "lessonName": "Lesson 4: Topic 2",
+                  "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+                }
+              ]
+            }
+          ],
+          "enrolledStudents": [
+            1
+          ]
+        },
+        {
+          "id": 4,
+          "instructorName": "Krishna Rao",
+          "title": "Introduction to Web",
+          "price": 3999,
+          "image": "/Course1.jpeg",
+          "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
+          "chapters": [
+            {
+              "chapterName": "Chapter 1: Introduction",
+              "lessons": [
+                {
+                  "id": 1,
+                  "lessonName": "Lesson 1: Course Introduction",
+                  "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+                },
+                {
+                  "id": 2,
+                  "lessonName": "Lesson 2: Getting Started",
+                  "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+                }
+              ]
+            },
+            {
+              "chapterName": "Chapter 2: Main Topics",
+              "lessons": [
+                {
+                  "id": 3,
+                  "lessonName": "Lesson 3: Topic 1",
+                  "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+                },
+                {
+                  "id": 4,
+                  "lessonName": "Lesson 4: Topic 2",
+                  "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+                }
+              ]
+            }
+          ],
+          "enrolledStudents": [
+            1
+          ]
+        },
+        {
+          "id": 2,
+          "instructorName": "Krishna Rao",
+          "title": "PHP",
+          "price": 1999,
+          "image": "/Course2.jpeg",
+          "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
+          "chapters": [
+            {
+              "chapterName": "Chapter 1: Introduction",
+              "lessons": [
+                {
+                  "id": 1,
+                  "lessonName": "Lesson 1: Course Introduction",
+                  "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+                },
+                {
+                  "id": 2,
+                  "lessonName": "Lesson 2: Getting Started",
+                  "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+                }
+              ]
+            },
+            {
+              "chapterName": "Chapter 2: Main Topics",
+              "lessons": [
+                {
+                  "id": 3,
+                  "lessonName": "Lesson 3: Topic 1",
+                  "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+                },
+                {
+                  "id": 4,
+                  "lessonName": "Lesson 4: Topic 2",
+                  "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+                }
+              ]
+            }
+          ],
+          "enrolledStudents": [
+            2,
+            1
+          ]
+        }
       ]
     },
     {

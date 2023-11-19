@@ -50,6 +50,10 @@ const Login = () => {
           if (!user) {
             setEmailError("Please Enter a valid Email");
           } else {
+            if(user.flag===1){
+              toast.warning('You are blocked by admin');
+              
+            } else {
             if (user.password === password) {
               toast.success("Success");
               dispatch(login(user));
@@ -57,6 +61,7 @@ const Login = () => {
             } else {
               setPasswordError("Please Enter Valid Password");
             }
+          }
           }
         })
         .catch((err) => {

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import AllUsers from "../components/AdminDashboard/AllUsers";
-
+import { useTitle } from "../Hooks/title-hook";
+import { motion } from "framer-motion";
+import GoBackButton from "../shared/components/FrontendTools/GoBack";
 const AllUsersPage = () => {
   const [users, setUsers] = useState([]);
+  useTitle("All Users");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,10 +53,14 @@ const AllUsersPage = () => {
   }, []);
 
   return (
-    <>
+    <motion.div
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5 }}>
+        <GoBackButton/>
       <h1>All Users</h1>
       <AllUsers users={users} />;
-    </>
+    </motion.div>
   );
 };
 
