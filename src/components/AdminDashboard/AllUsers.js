@@ -70,10 +70,10 @@ const AllUsers = ({ users }) => {
                 <h3 className="user-name">
                   {user.firstName} {user.lastName}(Student)
                 </h3>
-                <p className="user-info">{`Phone No: ${user.phoneNo}`}</p>
-                <p className="user-info">{`Address: ${user.address}`}</p>
+                <p className="user-info"><strong>Phone No:</strong> {`${user.phoneNo}`}</p>
+                <p className="user-info"><strong>Address </strong> {`${user.address}`}</p>
 
-                <p className="user-info">Enrolled Courses :</p>
+                <p className="user-info"><strong>Enrolled Courses :</strong></p>
                 <ul className="user-courses">
                   {user.courses.map((course) => (
                     <li key={course.id} className="course-item">
@@ -115,9 +115,9 @@ const AllUsers = ({ users }) => {
             <>
               <div className="user-details">
                 <h3 className="user-name">{user.fullName}(Teacher)</h3>
-                <p className="user-info">{`Phone No: ${user.phoneNo}`}</p>
-                <p className="user-info">{`Gender: ${user.gender}`}</p>
-                <p className="user-info">Teaching Courses :</p>
+                <p className="user-info"><strong>Phone No:</strong> {`${user.phoneNo}`}</p>
+                <p className="user-info"><strong>Gender:</strong> {`${user.gender}`}</p>
+                <p className="user-info"><strong>Teaching Courses :</strong></p>
                 <ul className="user-courses">
                   {user.courses.map((course) => (
                     <li key={course.id} className="course-item">

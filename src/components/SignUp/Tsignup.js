@@ -21,6 +21,7 @@ const Tsignup = () => {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const teachingCourses=[];
+  const completedLessons=[];
   const role=1;
   const handleFullNameChange = (e) => {
     setFullName(e.target.value);
@@ -132,7 +133,8 @@ const Tsignup = () => {
         email,
         password,
         role,
-        teachingCourses
+        teachingCourses,
+        completedLessons
       };
 
       fetch("http://localhost:8000/user", {

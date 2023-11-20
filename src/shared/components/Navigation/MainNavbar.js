@@ -37,7 +37,7 @@ const MainNavbar = (props) => {
         </h1>
         <div className="form-field">
             <input type='text' placeholder="search.."/>
-      </div>
+        </div>
         <nav className='navigation'>
           <NavItems/>
         </nav>

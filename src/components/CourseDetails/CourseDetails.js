@@ -16,9 +16,11 @@ import {
   FaTrophy,
 } from "react-icons/fa";
 const CourseDetails = () => {
+  
   const navigate=useNavigate();
   const { id: courseId } = useParams();
   const [course, setCourse] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [courseChapters,setCourseChapters]=useState([]);
   useEffect(() => {
     const getCourse = () => {
@@ -39,21 +41,27 @@ const CourseDetails = () => {
     };
     getCourse();
   }, [courseId,course.chapters]);
+  let price=course.price;
+  let discount=parseInt(((10999-price)/10999)*100);
  
-  const reviews = [
-    {
-      author: "Preetham Jayam",
-      date: "August 15, 2023",
-      rating: 5,
-      comment: "Great course! I learned a lot.",
-    },
-    {
-      author: "Anil Kumar",
-      date: "August 10, 2023",
-      rating: 4,
-      comment: "Informative content, but could use more quizzes.",
-    },
-  ];
+  
+
+  useEffect(() => {
+    if (courseId) {
+      fetch(`http://localhost:8000/reviews?courseId=${courseId}`)
+        .then((res) => res.json())
+        .then((fetchedReviews) => {
+          if (Array.isArray(fetchedReviews)) {
+            setReviews(fetchedReviews);
+          } else {
+            console.error("Invalid response from the server when fetching reviews");
+          }
+        })
+        .catch((err) => {
+          console.error("Error fetching reviews:", err.message);
+        });
+    }
+  }, [courseId]);
 
   const tabs = [
     {
@@ -75,7 +83,7 @@ const CourseDetails = () => {
         <>
           <div className="instructor-container">
             <div className="instructor-info">
-              <h5>Dr.Kevin </h5>
+              <h5>{course.instructorName}</h5>
               <p>Web Developer</p>
             </div>
             <div className="instructor-updated">
@@ -123,6 +131,7 @@ const CourseDetails = () => {
       content: <>
       <div className="reviews-container">
             <h2 className="reviews-title">Student Reviews</h2>
+            {reviews.length===0 && <h3>No Reviews Yet!!</h3>}
             <div className="review-list">
               {reviews.map((review, index) => (
                 <div key={index} className="review-item">
@@ -168,7 +177,7 @@ const CourseDetails = () => {
                 <FaStar className="i-star" />
                 <FaStarHalfAlt className="i-star" />
               </span>
-              <span className="reviews">(5 Reviews)</span>
+              <span className="reviews">({reviews.length} Reviews)</span>
             </div>
 
             <ul>
@@ -176,7 +185,7 @@ const CourseDetails = () => {
                 Enrolled students - <span>10</span>
               </li>
               <li className="items-4">
-                Created by - <span>Dr. Kevin</span>
+                Created by - <span>{course.instructorName}</span>
               </li>
               <li className="items-4">
                 Last Updated - <span>10/08/23</span>
@@ -205,9 +214,9 @@ const CourseDetails = () => {
         </div>
         <div className="center-items">
           <div className="price">
-            <span className="price-old">₹4999</span>
+            <span className="price-old">₹10999</span>
             <span className="price-new">₹{course.price}</span>
-            <span className="price-discount">41% off</span>
+            <span className="price-discount">{discount}% off</span>
           </div>
           <h3>Course Features:</h3>
           <ul className="features-list">

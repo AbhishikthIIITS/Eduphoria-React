@@ -39,6 +39,23 @@ const CourseContent = () => {
     getCourse();
   }, [courseId]);
 
+  useEffect(() => {
+    const getCompletedLessons = () => {
+      fetch("http://localhost:8000/user/" + user.id)
+        .then((res) => {
+          return res.json();
+        })
+        .then((resp) => {
+          setCompletedLessons(resp.completedLessons);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    };
+
+    getCompletedLessons();
+  },[user.id]);
+
   
 
   const submitReviewHandler = (e) => {
@@ -235,6 +252,7 @@ const CourseContent = () => {
           <div className="video-player-container">
             {selectedVideoUrl && (
               <VideoPlayer
+                user={user}
                 url={selectedVideoUrl}
                 completedLessons={completedLessons}
                 setCompletedLessons={setCompletedLessons}
@@ -261,21 +279,41 @@ const CourseContent = () => {
   );
 };
 
-const VideoPlayer = ({ url, completedLessons, setCompletedLessons, courseData }) => {
+const updateCompletedLessons = (user, completedLessons) => {
+  fetch(`http://localhost:8000/user/${user.id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ...user,completedLessons }),
+  })
+    .then((res) => res.json())
+    .then((updatedUser) => {
+      console.log("User data updated with completed lessons:", updatedUser);
+    })
+    .catch((err) => {
+      console.error("Error updating user data:", err.message);
+    });
+};
+
+
+const VideoPlayer = ({user, url, completedLessons, setCompletedLessons, courseData }) => {
   const handleVideoEnded = () => {
     const updatedCompletedLessons = [...completedLessons];
-    
+
     courseData.forEach((chapter) => {
       chapter.lessons.forEach((lesson) => {
         if (lesson.videoUrl === url) {
           const lessonId = lesson.id;
           if (!completedLessons.includes(lessonId)) {
             updatedCompletedLessons.push(lessonId);
-            setCompletedLessons(updatedCompletedLessons);
           }
         }
       });
     });
+
+    setCompletedLessons(updatedCompletedLessons);
+    updateCompletedLessons(user, updatedCompletedLessons);
   };
 
   return (

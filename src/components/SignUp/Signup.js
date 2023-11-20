@@ -22,6 +22,7 @@ const SignUp = () => {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const enrolledCourses=[];
+  const completedLessons=[];
   const role=0;
 
   const handleFirstNameChange = (e) => {
@@ -147,7 +148,8 @@ const SignUp = () => {
         email,
         password,
         role,
-        enrolledCourses
+        enrolledCourses,
+        completedLessons
       };
 
       fetch("http://localhost:8000/user", {
