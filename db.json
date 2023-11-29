@@ -58,9 +58,7 @@
         3,
         4
       ],
-      "completedLessons": [
-        
-      ]
+      "completedLessons": []
     },
     {
       "fullName": "Niranjan",
@@ -75,9 +73,7 @@
       "teachingCourses": [
         5
       ],
-      "completedLessons": [
-        
-      ]
+      "completedLessons": []
     },
     {
       "fullName": "Admin",
@@ -90,11 +86,28 @@
       "flag": 0,
       "teachingCourses": [],
       "id": 5,
-      "completedLessons": [
-        
-      ]
+      "completedLessons": []
+    },
+    {
+      "firstName": "Abhishikth",
+      "lastName": "Boda",
+      "phoneNo": "9273265998",
+      "dob": "2023-11-02",
+      "address": "Kakinada",
+      "email": "boda@gmail.com",
+      "password": "Boda@123",
+      "role": 0,
+      "flag":0,
+      "enrolledCourses": [
+        5
+      ],
+      "completedLessons": [],
+      "id": 6
     }
   ],
+  "routes": {
+    "/courses/:courseId/chapters/:chapterId/lessons/:lessonId": "/lessons/:lessonId"
+  },
   "courses": [
     {
       "id": 1,
@@ -105,6 +118,7 @@
       "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
       "chapters": [
         {
+          "id": 1,
           "chapterName": "Chapter 1: Introduction",
           "lessons": [
             {
@@ -120,6 +134,7 @@
           ]
         },
         {
+          "id": 2,
           "chapterName": "Chapter 2: Main Topics",
           "lessons": [
             {
@@ -148,6 +163,7 @@
       "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
       "chapters": [
         {
+          "id": 3,
           "chapterName": "Chapter 1: Introduction",
           "lessons": [
             {
@@ -163,6 +179,7 @@
           ]
         },
         {
+          "id": 4,
           "chapterName": "Chapter 2: Main Topics",
           "lessons": [
             {
@@ -192,6 +209,7 @@
       "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
       "chapters": [
         {
+          "id": 5,
           "chapterName": "Chapter 1: Introduction",
           "lessons": [
             {
@@ -207,6 +225,7 @@
           ]
         },
         {
+          "id": 6,
           "chapterName": "Chapter 2: Main Topics",
           "lessons": [
             {
@@ -235,6 +254,7 @@
       "description": "Programming is the process of designing, writing, and testing instructions for a computer to execute. It is a fundamental aspect of computer science and technology that enables humans to communicate with and control computers and other digital devices. Here are some key aspects and descriptions of programming",
       "chapters": [
         {
+          "id": 7,
           "chapterName": "Chapter 1: Introduction",
           "lessons": [
             {
@@ -250,6 +270,7 @@
           ]
         },
         {
+          "id": 8,
           "chapterName": "Chapter 2: Main Topics",
           "lessons": [
             {
@@ -277,6 +298,7 @@
       "image": "/Course4.jpg",
       "chapters": [
         {
+          "id": 9,
           "chapterName": "Chapter 1: Introduction",
           "lessons": [
             {
@@ -302,6 +324,7 @@
           ]
         },
         {
+          "id": 10,
           "chapterName": "Chapter 2: Main Topics",
           "lessons": [
             {
@@ -322,6 +345,7 @@
           ]
         },
         {
+          "id": 11,
           "chapterName": "Chapter 3",
           "lessons": [
             {
@@ -337,6 +361,7 @@
           ]
         },
         {
+          "id": 12,
           "chapterName": "Chapter 4",
           "lessons": [
             {
@@ -347,7 +372,9 @@
           ]
         }
       ],
-      "enrolledStudents": [],
+      "enrolledStudents": [
+        6
+      ],
       "id": 5
     }
   ],
@@ -367,6 +394,14 @@
       "comment": "Nice Course",
       "todaysdate": "November 18, 2023",
       "id": 2
+    },
+    {
+      "courseId": "4",
+      "studentName": "Preetham",
+      "rating": 3,
+      "comment": "g",
+      "todaysdate": "November 29, 2023",
+      "id": 3
     }
   ]
 }

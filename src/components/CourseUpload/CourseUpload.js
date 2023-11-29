@@ -10,6 +10,8 @@ const CourseUpload = () => {
   const [course, setCourse] = useState({});
   const [courseChapters, setCourseChapters] = useState([]);
 
+ 
+
   useEffect(() => {
     const getCourse = () => {
       fetch(`http://localhost:8000/courses/${courseId}`)
@@ -95,6 +97,34 @@ const CourseUpload = () => {
     updateCourse();
   }, [updateCourse]);
 
+  const handleLessonDelete = (chapterIndex, lessonIndex) => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this lesson?');
+  
+    if (confirmDelete) {
+      const courseId = course.id; 
+  
+      setCourseChapters((prevChapters) => {
+        const updatedChapters = [...prevChapters];
+        updatedChapters[chapterIndex].lessons.splice(lessonIndex, 1);
+        return updatedChapters;
+      });
+      const chapterId=courseChapters[chapterIndex].id;
+      const lessonIdToDelete = courseChapters[chapterIndex].lessons[lessonIndex].id;
+  
+      fetch(`http://localhost:8000/courses/${courseId}/chapters/${chapterId}/lessons/${lessonIdToDelete}`, {
+        method: 'DELETE',
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('Lesson deleted successfully:', data);
+          toast.success('Lesson deleted successfully');
+        })
+        .catch((error) => {
+          console.error('Error deleting lesson:', error);
+        });
+    }
+  };
+  
   return (
     <div className="course-form">
       <h1>{course.courseName}</h1>
@@ -111,6 +141,13 @@ const CourseUpload = () => {
           <div className="lessons">
             {chapter.lessons.map((lesson, lessonIndex) => (
               <div className="lesson" key={lessonIndex}>
+                <button
+                  className="delete-lesson-btn"
+                  style={{backgroundColor:'red',color:'white'}}
+                  onClick={() => handleLessonDelete(chapterIndex, lessonIndex)}
+                >
+                  &#10006; 
+                </button>
                 <label>Lesson Name:</label>
                 <input
                   type="text"
@@ -123,6 +160,7 @@ const CourseUpload = () => {
                   value={lesson.videoUrl}
                   onChange={(e) => handleVideoUrlChange(chapterIndex, lessonIndex, e.target.value)}
                 />
+                
               </div>
             ))}
             <button className="upload-btn" onClick={() => addLesson(chapterIndex)}>

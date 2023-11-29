@@ -23,6 +23,7 @@ const Tsignup = () => {
   const teachingCourses=[];
   const completedLessons=[];
   const role=1;
+  const flag=0;
   const handleFullNameChange = (e) => {
     setFullName(e.target.value);
     setFullNameError("");
@@ -134,7 +135,8 @@ const Tsignup = () => {
         password,
         role,
         teachingCourses,
-        completedLessons
+        completedLessons,
+        flag
       };
 
       fetch("http://localhost:8000/user", {

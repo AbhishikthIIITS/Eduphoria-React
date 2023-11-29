@@ -24,6 +24,7 @@ const SignUp = () => {
   const enrolledCourses=[];
   const completedLessons=[];
   const role=0;
+  const flag=0;
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -149,7 +150,8 @@ const SignUp = () => {
         password,
         role,
         enrolledCourses,
-        completedLessons
+        completedLessons,
+        flag
       };
 
       fetch("http://localhost:8000/user", {
