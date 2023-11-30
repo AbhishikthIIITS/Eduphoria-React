@@ -18,6 +18,7 @@ const ResultsPage = () => {
       <h1><span style={{textDecoration:'underline'}}>Results for query :</span> </h1>
       <h1>{state.query}</h1>
       <CourseList courses={courses} />
+      {courses.length===0 && <h1>No Results found </h1>}
     </motion.div>
   );
 };

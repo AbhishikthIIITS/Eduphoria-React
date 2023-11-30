@@ -2,6 +2,7 @@ import React, {  useState } from "react";
 import "./Accordion.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Certificate from "../Certificate/Certificate";
 const Accordion = ({
   course,
   courseData,
@@ -100,6 +101,7 @@ const Accordion = ({
           )}
         </div>
       ))}
+     {loggedIn && user.role===0 && <Certificate userName={user.firstName} courseTitle={course.title} instructorName={course.instructorName}/>}
       {loggedIn && user.role === 1 && user.teachingCourses.includes(id) && (
         <>
           <div className="edit-div">
