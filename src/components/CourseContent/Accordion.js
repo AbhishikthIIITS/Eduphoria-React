@@ -9,6 +9,7 @@ const Accordion = ({
   setSelectedVideoUrl,
   enrolled,
   completedLessons,
+  percentage
 }) => {
   const user = useSelector((state) => state.auth.user);
   const loggedIn = useSelector((state) => state.auth.loggedIn);
@@ -101,7 +102,7 @@ const Accordion = ({
           )}
         </div>
       ))}
-     {loggedIn && user.role===0 && <Certificate userName={user.firstName} courseTitle={course.title} instructorName={course.instructorName}/>}
+     {loggedIn && user.role===0 && percentage>=30 && <Certificate userName={user.firstName} courseTitle={course.title} instructorName={course.instructorName}/>}
       {loggedIn && user.role === 1 && user.teachingCourses.includes(id) && (
         <>
           <div className="edit-div">

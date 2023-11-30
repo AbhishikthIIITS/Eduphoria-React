@@ -19,6 +19,65 @@ const CourseContent = () => {
   );
   const [courseChapters,setCourseChapters]=useState([]);
   const { id: courseId } = useParams();
+  const [completedLessonCount, setCompletedLessonsCount] = useState(0);
+  const [totalLessons, setTotalLessons] = useState(0);
+
+  useEffect(() => {
+    const getCourseDetails = async () => {
+      try {
+        const courseResponse = await fetch(
+          `http://localhost:8000/courses/${courseId}`
+        );
+        const courseData = await courseResponse.json();
+
+        if (courseData && courseData.chapters) {
+          const totalLessonsCount = courseData.chapters.reduce(
+            (count, chapter) => count + chapter.lessons.length,
+            0
+          );
+          setTotalLessons(totalLessonsCount);
+        }
+      } catch (error) {
+        console.error("Error fetching course details:", error.message);
+      }
+    };
+
+    const getCompletedLessons = () => {
+      fetch(`http://localhost:8000/courses/${courseId}`)
+        .then((res) => res.json())
+        .then((course) => {
+          fetch(`http://localhost:8000/user/${user.id}`)
+            .then((res) => res.json())
+            .then((userData) => {
+              if (userData.role === 0) {
+                const studentCompletedLessons = userData.completedLessons || [];
+                let completedLessonsCount = 0;
+
+                course.chapters.forEach((chapter) => {
+                  chapter.lessons.forEach((lesson) => {
+                    if (studentCompletedLessons.includes(lesson.id)) {
+                      completedLessonsCount++;
+                    }
+                  });
+                });
+                setCompletedLessonsCount(completedLessonsCount);
+                console.log("Completed Lessons Count:", completedLessonsCount);
+              }
+            })
+            .catch((err) => {
+              console.log(err.message);
+            });
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    };
+
+    getCourseDetails();
+    getCompletedLessons();
+  }, [user.id, courseId]);
+
+  const percentage = (completedLessonCount/totalLessons)*100;
   useEffect(() => {
     const getCourse = () => {
       fetch("http://localhost:8000/courses")
@@ -273,6 +332,7 @@ const CourseContent = () => {
           setSelectedVideoUrl={setSelectedVideoUrl}
           enrolled={true}
           completedLessons={completedLessons}
+          percentage={percentage}
         />
       </div>
     </div>
