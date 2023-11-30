@@ -45,7 +45,7 @@ const SearchBar = () => {
     );
     setResults(results);
     clearSearch();
-    navigate("/results", { state: { courses: results } });
+    navigate("/results", { state: {query:searchQuery, courses: results } });
   };
 
   const clearSearch = () => {

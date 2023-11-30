@@ -1,4 +1,4 @@
-import React, { useState, useEffect ,useCallback} from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Profile.css";
 import Loader from "../Loader/Loader";
 import EnrolledCourseList from "../Courses/EnrolledList";
@@ -7,13 +7,11 @@ import Modal from "../../shared/components/FrontendTools/Modal";
 
 const Profile = () => {
   const userinit = useSelector((state) => state.auth.user);
-  const [user,setUser]=useState(userinit);
+  const [user, setUser] = useState(userinit);
   const [userCourses, setUserCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [editedUser, setEditedUser] = useState({ ...user });
-
-  
 
   const fetchUserData = useCallback(() => {
     setLoading(true);
@@ -54,10 +52,10 @@ const Profile = () => {
         console.error("Error fetching user data:", error);
         setLoading(false);
       });
-  },[user.id]);
+  }, [user.id]);
 
   useEffect(() => {
-    fetchUserData(); 
+    fetchUserData();
   }, [fetchUserData]);
 
   const openEditModal = () => {
@@ -121,7 +119,9 @@ const Profile = () => {
                   <span className="info-label">Address:</span>
                   <span className="info-value">{user.address}</span>
                 </div>
-                <button onClick={openEditModal} className="edit-btn">Edit Profile</button>
+                <button onClick={openEditModal} className="edit-btn">
+                  Edit Profile
+                </button>
               </div>
             </div>
           </div>
@@ -133,8 +133,12 @@ const Profile = () => {
             footerClass="modal__footer-profile"
             footer={
               <React.Fragment>
-                <button onClick={saveEditedUser} className="edit-btn">Save</button>
-                <button onClick={closeEditModal} className="logout-btn">Cancel</button>
+                <button onClick={saveEditedUser} className="edit-btn">
+                  Save
+                </button>
+                <button onClick={closeEditModal} className="logout-btn">
+                  Cancel
+                </button>
               </React.Fragment>
             }
           >
@@ -236,7 +240,9 @@ const Profile = () => {
                   <span className="info-label">Gender:</span>
                   <span className="info-value">{user.gender}</span>
                 </div>
-                <button onClick={openEditModal} className="edit-btn">Edit Profile</button>
+                <button onClick={openEditModal} className="edit-btn">
+                  Edit Profile
+                </button>
               </div>
             </div>
           </div>
@@ -247,8 +253,12 @@ const Profile = () => {
             footerClass="modal__footer-profile"
             footer={
               <React.Fragment>
-                <button onClick={saveEditedUser} className="edit-btn">Save</button>
-                <button onClick={closeEditModal} className="logout-btn">Cancel</button>
+                <button onClick={saveEditedUser} className="edit-btn">
+                  Save
+                </button>
+                <button onClick={closeEditModal} className="logout-btn">
+                  Cancel
+                </button>
               </React.Fragment>
             }
           >
@@ -268,7 +278,10 @@ const Profile = () => {
                 type="text"
                 value={editedUser.instituteName}
                 onChange={(e) =>
-                  setEditedUser({ ...editedUser, instituteName: e.target.value })
+                  setEditedUser({
+                    ...editedUser,
+                    instituteName: e.target.value,
+                  })
                 }
               />
             </div>
@@ -302,7 +315,6 @@ const Profile = () => {
                 }
               />
             </div>
-            
           </Modal>
           <div className="user-courses">
             {loading ? (

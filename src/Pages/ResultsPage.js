@@ -15,6 +15,8 @@ const ResultsPage = () => {
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.5 }}>
       <GoBackButton/>
+      <h1><span style={{textDecoration:'underline'}}>Results for query :</span> </h1>
+      <h1>{state.query}</h1>
       <CourseList courses={courses} />
     </motion.div>
   );
