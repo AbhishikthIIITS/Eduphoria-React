@@ -17,6 +17,8 @@ import ProfilePage from "../Pages/ProfilePage";
 import EnrollPayment from "./Payment/EnrollPayment";
 import CourseUploadPage from "../Pages/CourseUploadPage";
 import AllUsersPage from "../Pages/AllUsersPage";
+import EditCoursePage from "../Pages/EditCourse";
+import ResultsPage from "../Pages/ResultsPage";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -36,10 +38,12 @@ const AnimatedRoutes = () => {
         <Route  path='/thome' element={<ProtectedRoute><TeacherHome/></ProtectedRoute>}/>
         <Route  path='/courseContent/:id' element={<ProtectedRoute><CourseContentPage/></ProtectedRoute>}/>
         <Route path='/AddCourse' element={<ProtectedRoute><AddCourse/></ProtectedRoute>} />
+        <Route path='/course/edit/:id' element={<ProtectedRoute><EditCoursePage/></ProtectedRoute>}/>
         <Route path='/profile' element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
         <Route path='/enroll/:cid' element={<ProtectedRoute><EnrollPayment/></ProtectedRoute>} />
         <Route path='/course/upload/:id' element={<ProtectedRoute><CourseUploadPage/></ProtectedRoute>} />
         <Route path='/users' element={<ProtectedRoute><AllUsersPage/></ProtectedRoute>} />
+        <Route path='/results' element={<ResultsPage/>}/>
 
         
       </Routes>

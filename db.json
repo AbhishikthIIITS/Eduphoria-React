@@ -21,7 +21,7 @@
       ]
     },
     {
-      "firstName": "Chaitanya",
+      "firstName": "Venkata Chaitanya",
       "lastName": "Kampara",
       "phoneNo": "7569664671",
       "dob": "2004-07-20",
@@ -61,7 +61,7 @@
       "completedLessons": []
     },
     {
-      "fullName": "Niranjan",
+      "fullName": "Niranjan babu",
       "phoneNo": "8008201571",
       "instituteName": "Bhashyam",
       "gender": "male",
@@ -97,7 +97,7 @@
       "email": "boda@gmail.com",
       "password": "Boda@123",
       "role": 0,
-      "flag":0,
+      "flag": 0,
       "enrolledCourses": [
         5
       ],
@@ -291,7 +291,7 @@
       ]
     },
     {
-      "title": "Data Structures and algorithms",
+      "title": "Data Structures and Algorithms",
       "description": "A data structure is a way of organizing the data so that it can be used efficiently. Here, we have used the word efficiently, which in terms of both the space and time. For example, a stack is an ADT (Abstract data type) which uses either arrays or linked list data structure for the implementation.",
       "price": "4500",
       "instructorName": "Niranjan",
