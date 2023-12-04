@@ -103,7 +103,7 @@ const Accordion = ({
         </div>
       ))}
      {loggedIn && user.role===0 && percentage>=30 && <Certificate userName={user.firstName} courseTitle={course.title} instructorName={course.instructorName}/>}
-      {loggedIn && user.role === 1 && user.teachingCourses.includes(id) && (
+      {loggedIn && user.role === 1  && (
         <>
           <div className="edit-div">
             <Link to={`/course/edit/${id}`}>

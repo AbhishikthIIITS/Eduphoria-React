@@ -8,6 +8,7 @@ import Loader from "../components/Loader/Loader";
 
 const Courses = () => {
   useTitle("Courses Page");
+ 
   const [courseData, setCourseData] = useState([]);
   const user=useSelector((state)=>state.auth.user);
   const isLoggedIn=useSelector((state)=>state.auth.loggedIn);
@@ -15,6 +16,8 @@ const Courses = () => {
   const [sortValue,setSortValue]=useState("");
 
   const otherCourses= user && user.role===0 && courseData.filter((course)=>!user.enrolledCourses.includes(course.id));
+
+  
   
 
   useEffect(() => {

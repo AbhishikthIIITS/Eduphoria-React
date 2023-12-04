@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Card from "../../shared/components/FrontendTools/Card";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { addCourse } from "../../Actions/CourseActions";
 
 const AddCourse = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.user);
   const instructorName = user.fullName;
@@ -33,7 +35,7 @@ const AddCourse = () => {
     setDescriptionError("");
   };
 
-  const submiHandler = (e) => {
+  const submiHandler = async (e) => {
     e.preventDefault();
     setTitleError("");
     setDescriptionError("");
@@ -71,19 +73,13 @@ const AddCourse = () => {
     };
 
     if (isValid) {
-      fetch("http://localhost:8000/courses", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(courseObj),
-      })
-        .then((res) => {
-          toast.success("Course Added Succesfully");
+      dispatch(addCourse(user.id, courseObj))
+        .then(() => {
+          toast.success("Course Added Successfully");
           navigate("/");
         })
-        .catch((err) => {
-          toast.error("Failed: " + err.message);
+        .catch((error) => {
+          toast.error("Failed to update course: " + error.message);
         });
     }
   };

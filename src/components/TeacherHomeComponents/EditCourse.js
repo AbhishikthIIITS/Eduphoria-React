@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import Card from "../../shared/components/FrontendTools/Card";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { updateCourse } from "../../Actions/CourseActions";
+import { useDispatch } from "react-redux";
 const EditCourse = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const dispatch=useDispatch();
   const [course,setCourse]=useState({});
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -50,6 +51,8 @@ const EditCourse = () => {
     setDescriptionError("");
   };
 
+  
+
   const submitHandler = (e) => {
   e.preventDefault();
   setTitleError("");
@@ -84,23 +87,13 @@ const EditCourse = () => {
   };
 
   if (isValid) {
-    fetch(`http://localhost:8000/courses/${id}`, {
-      method: "PUT", 
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(courseObj),
-    })
-      .then((res) => {
-        if (res.ok) {
-          toast.success("Course Updated Successfully");
-          navigate("/courseContent/"+id);
-        } else {
-          throw new Error(`Failed with status ${res.status}`);
-        }
+    dispatch(updateCourse(id, courseObj))
+      .then(() => {
+        toast.success('Course Updated Successfully');
+        navigate('/courseContent/' + id);
       })
-      .catch((err) => {
-        toast.error("Failed: " + err.message);
+      .catch((error) => {
+        toast.error('Failed to update course: ' + error.message);
       });
   }
 };

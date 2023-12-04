@@ -2,12 +2,25 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   users: [],
+  status:'idle',
+  error:null
 };
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    getAllUsersStart: (state) => {
+      state.status = 'loading';
+    },
+    getAllUsersSuccess: (state, action) => {
+      state.status = 'succeeded';
+      state.users = action.payload;
+    },
+    getAllUsersFailure: (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload;
+    },
     updateUser: (state, action) => {
       const { userId, updatedUser } = action.payload;
       const index = state.users.findIndex(user => user.id === userId);
@@ -26,7 +39,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { updateUser, updateEnrolledCourses } = userSlice.actions;
+export const { updateUser, updateEnrolledCourses,getAllUsersFailure,getAllUsersStart,getAllUsersSuccess } = userSlice.actions;
 
 export const selectAllUsers = state => state.user.users;
 

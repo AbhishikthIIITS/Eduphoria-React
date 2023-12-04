@@ -2,23 +2,38 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   courses: [],
+  status: 'idle', 
+  error: null,
 };
 
 const courseSlice = createSlice({
   name: 'course',
   initialState,
   reducers: {
+    getAllCoursesStart: (state) => {
+      state.status = 'loading';
+    },
+    getAllCoursesSuccess: (state, action) => {
+      state.status = 'succeeded';
+      state.courses = action.payload;
+    },
+    getAllCoursesFailure: (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload;
+    },
     addCourse: (state, action) => {
       state.courses.push(action.payload);
     },
     updateCourse: (state, action) => {
+    
       const { courseId, updatedCourse } = action.payload;
-      const index = state.courses.findIndex(course => course.id === courseId);
-
+      const index = state.courses.findIndex(course => course.id === Number(courseId));
+    
       if (index !== -1) {
         state.courses[index] = { ...state.courses[index], ...updatedCourse };
       }
     },
+    
     updateEnrolledStudents: (state, action) => {
       const { courseId, userId } = action.payload;
       const courseIndex = state.courses.findIndex(course => course.id === courseId);
@@ -41,7 +56,7 @@ const courseSlice = createSlice({
     },
     updateLesson: (state, action) => {
       const { courseId, chapterId, lessonId, updatedLesson } = action.payload;
-      const courseIndex = state.courses.findIndex(course => course.id === courseId);
+      const courseIndex = state.courses.findIndex(course => course.id === courseId-1);
       const chapterIndex = state.courses[courseIndex]?.chapters.findIndex(chapter => chapter.id === chapterId);
       const lessonIndex = state.courses[courseIndex]?.chapters[chapterIndex]?.lessons.findIndex(lesson => lesson.id === lessonId);
 
@@ -56,6 +71,9 @@ const courseSlice = createSlice({
 });
 
 export const {
+  getAllCoursesFailure,
+  getAllCoursesSuccess,
+  getAllCoursesStart,
   addCourse,
   updateCourse,
   updateEnrolledStudents,

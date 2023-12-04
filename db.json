@@ -14,7 +14,8 @@
       "enrolledCourses": [
         3,
         4,
-        2
+        2,
+        6
       ],
       "completedLessons": [
         7
@@ -25,7 +26,7 @@
       "lastName": "Kampara",
       "phoneNo": "7569664671",
       "dob": "2004-07-20",
-      "address": "Rajhamundry",
+      "address": "Raj",
       "email": "chaitu@gmail.com",
       "password": "Chaitu@123",
       "role": 0,
@@ -71,7 +72,10 @@
       "flag": 0,
       "id": 4,
       "teachingCourses": [
-        5
+        5,
+        6,
+        7,
+        8
       ],
       "completedLessons": []
     },
@@ -124,28 +128,28 @@
             {
               "id": 1,
               "lessonName": "Lesson 1: Course Introduction",
-              "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+              "videoUrl": "https://youtu.be/XASY30EfGAc?si=kKJSUUuROVUsn53I"
             },
             {
               "id": 2,
-              "lessonName": "Lesson 2: Getting Started",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+              "lessonName": "Lesson 2: What is Programming",
+              "videoUrl": "https://youtu.be/N7ZmPYaXoic?si=y-3i45uHvVUbxyQk"
             }
           ]
         },
         {
           "id": 2,
-          "chapterName": "Chapter 2: Main Topics",
+          "chapterName": "Chapter 2: C language",
           "lessons": [
             {
               "id": 3,
-              "lessonName": "Lesson 3: Topic 1",
-              "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+              "lessonName": "Lesson 3: Structure of a C program",
+              "videoUrl": "https://youtu.be/rbpDA158WTU?si=kCLNU7w0r4F_e8ep"
             },
             {
               "id": 4,
-              "lessonName": "Lesson 4: Topic 2",
-              "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+              "lessonName": "Lesson 4: Syntax of C language",
+              "videoUrl": "https://youtu.be/6ALbwB0AcCI?si=nrkkk7tIJEOQT3eg"
             }
           ]
         }
@@ -169,28 +173,28 @@
             {
               "id": 5,
               "lessonName": "Lesson 1: Course Introduction",
-              "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+              "videoUrl": "https://youtu.be/KBT2gmAfav4?si=7b3bz7-CCdJwDI8M"
             },
             {
               "id": 2,
-              "lessonName": "Lesson 2: Getting Started",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+              "lessonName": "Lesson 2: What is PHP",
+              "videoUrl": "https://youtu.be/0DYDtZgmZdA?si=aCjkFgTkxJk4caWw"
             }
           ]
         },
         {
           "id": 4,
-          "chapterName": "Chapter 2: Main Topics",
+          "chapterName": "Chapter 2: Learning PHP",
           "lessons": [
             {
               "id": 6,
-              "lessonName": "Lesson 3: Topic 1",
-              "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+              "lessonName": "Lesson 3: How to install PHP",
+              "videoUrl": "https://youtu.be/KgUp3FomMoc?si=z8F12Vr9-CFpZSIG"
             },
             {
               "id": 4,
-              "lessonName": "Lesson 4: Topic 2",
-              "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+              "lessonName": "Lesson 4: Syntax of PHP",
+              "videoUrl": "https://youtu.be/HrtS-FkPBqk?si=pAbRidlIIXLI0uY3"
             }
           ]
         }
@@ -215,28 +219,28 @@
             {
               "id": 7,
               "lessonName": "Lesson 1: Course Introduction",
-              "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+              "videoUrl": "https://youtu.be/Y8Tko2YC5hA?si=PSe5NkMyQINottX6"
             },
             {
               "id": 8,
-              "lessonName": "Lesson 2: Getting Started",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+              "lessonName": "Lesson 2: Application of Python",
+              "videoUrl": "https://youtu.be/G7G4MpFg8jg?si=aph1Cj4ejLCEXCq7"
             }
           ]
         },
         {
           "id": 6,
-          "chapterName": "Chapter 2: Main Topics",
+          "chapterName": "Chapter 2: Learning Python",
           "lessons": [
             {
               "id": 9,
-              "lessonName": "Lesson 3: Topic 1",
-              "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+              "lessonName": "Lesson 3: Python Syntax",
+              "videoUrl": "https://youtu.be/A2NnIWCYnMQ?si=OW2P446K-XuVIW3w"
             },
             {
               "id": 10,
-              "lessonName": "Lesson 4: Topic 2",
-              "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+              "lessonName": "Lesson 4: Datatypes in Python",
+              "videoUrl": "https://youtu.be/gCCVsvgR2KU?si=qD6RmoL9tRJWoy2b"
             }
           ]
         }
@@ -260,28 +264,28 @@
             {
               "id": 11,
               "lessonName": "Lesson 1: Course Introduction",
-              "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+              "videoUrl": "https://youtu.be/3UK8ARg_xm4?si=zOu6C79SwZcMwNAb"
             },
             {
               "id": 12,
-              "lessonName": "Lesson 2: Getting Started",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+              "lessonName": "Lesson 2: Web Development Roadmap",
+              "videoUrl": "https://youtu.be/2Gv6CMvI-Lw?si=W4CAiqItqEd-p3Vm"
             }
           ]
         },
         {
           "id": 8,
-          "chapterName": "Chapter 2: Main Topics",
+          "chapterName": "Chapter 2: Learning Web development",
           "lessons": [
             {
               "id": 13,
-              "lessonName": "Lesson 3: Topic 1",
-              "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+              "lessonName": "Lesson 3: HTML",
+              "videoUrl": "https://youtu.be/salY_Sm6mv4?si=LEdTJFGdCXhxeokR"
             },
             {
               "id": 14,
-              "lessonName": "Lesson 4: Topic 2",
-              "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
+              "lessonName": "Lesson 4: CSS",
+              "videoUrl": "https://youtu.be/Z4pCqK-V_Wo?si=LM6ns2hZupna8o0H"
             }
           ]
         }
@@ -304,70 +308,70 @@
             {
               "id": 15,
               "lessonName": "Lesson 1: Course Introduction",
-              "videoUrl": "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+              "videoUrl": "https://youtu.be/xLetJpcjHS0?si=5-OfYm5iDbqg3Sup"
             },
             {
               "id": 16,
-              "lessonName": "Lesson 2: Getting Started",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
-            },
-            {
-              "id": 1700390745507,
-              "lessonName": "Lesson 3 ",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
-            },
-            {
-              "id": 1700396403983,
-              "lessonName": "Lesson 4",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+              "lessonName": "Lesson 2: Roadmap to Data Structures and Algorithms",
+              "videoUrl": "https://youtu.be/uZe1Bbsycyc?si=FLvO0pXtZSMfdM-D"
             }
           ]
         },
         {
           "id": 10,
-          "chapterName": "Chapter 2: Main Topics",
+          "chapterName": "Chapter 2: Arrays",
           "lessons": [
             {
               "id": 17,
-              "lessonName": "Lesson 3: Topic 1",
-              "videoUrl": "https://youtu.be/VzT2xurZrbI?si=h70m2st1JUiIQ0PE"
+              "lessonName": "Lesson 3: Introduction",
+              "videoUrl": "https://youtu.be/eXFItikqw8c?si=Mo7FLw_0JzYcgtxG"
             },
             {
               "id": 18,
-              "lessonName": "Lesson 4: Topic 2",
-              "videoUrl": "https://youtu.be/8jJ2ReN-xNY?si=_yaJ8lUw1XmmB_Xa"
-            },
-            {
-              "id": 1700396406844,
-              "lessonName": "Lesson 5",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+              "lessonName": "Lesson 4: Array Operations",
+              "videoUrl": "https://youtu.be/Bnjbun-hiBk?si=L_SXUXXd7Wjg628f"
             }
           ]
         },
         {
           "id": 11,
-          "chapterName": "Chapter 3",
+          "chapterName": "Chapter 3: Linked List",
           "lessons": [
             {
               "id": 1700396435919,
-              "lessonName": "Introduction to chapter 3",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+              "lessonName": "Lesson 5: Inroduction",
+              "videoUrl": "https://youtu.be/R9PTBwOzceo?si=s1KTks2OAcL8Bd4S"
             },
             {
               "id": 1700396446066,
-              "lessonName": "Lesson 2",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+              "lessonName": "Lesson 6: Linked List vs Arrays",
+              "videoUrl": "https://youtu.be/Muo0UdwESn4?si=LAoMD6642iDryLP4"
             }
           ]
         },
         {
           "id": 12,
-          "chapterName": "Chapter 4",
+          "chapterName": "Chapter 4: Queues and Stacks",
           "lessons": [
             {
               "id": 1700396466667,
-              "lessonName": "Lesson 1:chapter 4",
-              "videoUrl": "https://youtu.be/SHgl-aoDINw?si=XD7Qu4EIjQHFpaho"
+              "lessonName": "Lesson 7: Queue using Arrays",
+              "videoUrl": "https://youtu.be/okr-XE8yTO8?si=LUq6RSy1_4T9Qkan"
+            },
+            {
+              "id": 1700396466697,
+              "lessonName": "Lesson 8: Queue using Linked Lists",
+              "videoUrl": "https://youtu.be/RN1wzY_tnYU?si=TwGePmX9nR7pZVmv"
+            },
+            {
+              "id": 1700396460654,
+              "lessonName": "Lesson 9: Stack using Arrays",
+              "videoUrl": "https://youtu.be/rS-ZKTqwi90?si=ZRox8e8ymjvFCkiJ"
+            },
+            {
+              "id": 1700355466697,
+              "lessonName": "Lesson 10: Stack using Linked Lists",
+              "videoUrl": "https://youtu.be/0-kkDfCOXOI?si=CXXWFT2q1tT0sdRX"
             }
           ]
         }
@@ -376,6 +380,49 @@
         6
       ],
       "id": 5
+    },
+    {
+      "title": "BlockChain Technology",
+      "description": "Newly emerging Technology blockchain",
+      "price": "2000",
+      "instructorName": "Niranjan babu",
+      "image": "/Course4.jpg",
+      "chapters": [
+        {
+          "chapterName": "Chapter 1",
+          "lessons": [
+            {
+              "id": 1701616875236,
+              "lessonName": "Intro to blockchain",
+              "videoUrl": "https://youtu.be/yubzJw0uiE4?si=qzvwkMW8HnxdfzIq"
+            }
+          ]
+        }
+      ],
+      "enrolledStudents": [
+        1
+      ],
+      "id": 6
+    },
+    {
+      "title": "Natural Language Processing",
+      "description": "NLP Course ",
+      "price": "3000",
+      "instructorName": "Niranjan babu",
+      "image": "/Course4.jpg",
+      "chapters": [],
+      "enrolledStudents": [],
+      "id": 7
+    },
+    {
+      "title": "Brain Computer Interface",
+      "description": "BCI",
+      "price": "2999",
+      "instructorName": "Niranjan babu",
+      "image": "/Course4.jpg",
+      "chapters": [],
+      "enrolledStudents": [],
+      "id": 8
     }
   ],
   "reviews": [

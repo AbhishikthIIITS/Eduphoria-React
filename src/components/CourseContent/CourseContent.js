@@ -15,7 +15,7 @@ const CourseContent = () => {
   const [reviews, setReviews] = useState([]);
   const [completedLessons, setCompletedLessons] = useState([]);
   const [selectedVideoUrl, setSelectedVideoUrl] = useState(
-    "https://youtu.be/AQEc4BwX6dk?si=ER7ghHEE8PyBUYE-"
+    ""
   );
   const [courseChapters,setCourseChapters]=useState([]);
   const { id: courseId } = useParams();
