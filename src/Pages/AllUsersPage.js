@@ -3,6 +3,7 @@ import AllUsers from "../components/AdminDashboard/AllUsers";
 import { useTitle } from "../Hooks/title-hook";
 import { motion } from "framer-motion";
 import GoBackButton from "../shared/components/FrontendTools/GoBack";
+
 const AllUsersPage = () => {
   const [users, setUsers] = useState([]);
   useTitle("All Users");
